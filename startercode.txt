@@ -1,0 +1,25 @@
+create table Team ( TeamCode char(5) null,
+TeamName varchar(50) not null default ‘<no name>’,
+HomeField varchar(75) not null );
+
+create table Play (PlayerID int not null,
+Name varchar(80) not null default ‘<unknown>’,
+DateOfBirth int not null,
+Position varchar(50) default’<no position>’ null,
+TeamCode char(10) null,
+primary key (Player));
+
+alter table Player drop constraint FK_Player_Team 
+foreign key TeamCode 
+references Player (PlayerID) on delete cascade on update cascade;
+
+--Thanks ChatGPT
+INSERT INTO Team (TeamCode, TeamName, HomeField) VALUES ('T001', 'Team A', 'Stadium A');
+INSERT INTO Team (TeamCode, TeamName, HomeField) VALUES ('T002', 'Team B', 'Stadium B');
+INSERT INTO Team (TeamCode, TeamName, HomeField) VALUES ('T003', 'Team C', 'Stadium C');
+
+-- Insert statements for the Player table
+INSERT INTO Player (PlayerID, Name, DateOfBirth, Position, TeamCode) VALUES (1, 'John Doe', 1990, 'Forward', 'T001');
+INSERT INTO Player (PlayerID, Name, DateOfBirth, Position, TeamCode) VALUES (2, 'Alice Smith', 1985, 'Midfield', 'T001');
+INSERT INTO Player (PlayerID, Name, DateOfBirth, Position, TeamCode) VALUES (3, 'Bob Johnson', 1995, 'Goalkeeper', 'T002');
+INSERT INTO Player (PlayerID, Name, DateOfBirth, Position, TeamCode) VALUES (4, 'Eve Brown', 2000, 'Defender', 'T002');
