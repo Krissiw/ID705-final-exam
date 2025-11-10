@@ -13,7 +13,7 @@ alter table Player drop constraint FK_Player_Team
 foreign key TeamCode 
 references Player (PlayerID) on delete cascade on update cascade;
 
---Thanks ChatGPT
+--Insert statements for Team
 INSERT INTO Team (TeamCode, TeamName, HomeField) VALUES ('T001', 'Team A', 'Stadium A');
 INSERT INTO Team (TeamCode, TeamName, HomeField) VALUES ('T002', 'Team B', 'Stadium B');
 INSERT INTO Team (TeamCode, TeamName, HomeField) VALUES ('T003', 'Team C', 'Stadium C');
@@ -23,3 +23,4 @@ INSERT INTO Player (PlayerID, Name, DateOfBirth, Position, TeamCode) VALUES (1, 
 INSERT INTO Player (PlayerID, Name, DateOfBirth, Position, TeamCode) VALUES (2, 'Alice Smith', 1985, 'Midfield', 'T001');
 INSERT INTO Player (PlayerID, Name, DateOfBirth, Position, TeamCode) VALUES (3, 'Bob Johnson', 1995, 'Goalkeeper', 'T002');
 INSERT INTO Player (PlayerID, Name, DateOfBirth, Position, TeamCode) VALUES (4, 'Eve Brown', 2000, 'Defender', 'T002');
+
